@@ -1,7 +1,7 @@
 <?php 
 
 /**
-* THis is an wrapper class of Vindowshop.
+* THis is a wrapper class of Vindowshop.
 */
 class Vindowshop
 {
