@@ -1,6 +1,6 @@
 This is a php wrapper for the publishers associated with VindowShop.
 
-1. What this sdk do?
+<b>1. What this sdk do?</b>
 
 Being a publisher of a content management system and being associated with VindowShop you would like to send your images to VindowShop while posting a blog or some content to your page, and also you would like to show your visitors the VindowShop logo on the those images and help them to get similar cloths from the web. This wrapper helps you to code minimum on your CMS and make these things happen in a easiest way.
 
