@@ -25,13 +25,13 @@ required_once(&#39;file/path/Vindowshop.php&#39;);<br />
 
 <p>Now it&#39;s time to get access for your application. Open a developer account at http://developers.vindowshop.com and get your appId and apiKey</p>
 
-<p>Step 3: Authenticate your API</p>
+<p><strong>Step 3: Authenticate your API</strong></p>
 
 <p>Now get back to your code, and create an instance of the class written at Vindowshop.php (the file you downloaded from us earlier).</p>
 
 <blockquote>
 <p>...<br />
-$instance = new Vindowshop(&#39;appId&#39;,&#39;apiKey&#39;); // appId and apiKey you just recieved from us.<br />
+$instance = new Vindowshop($appId,$apiKey); // $appId and $apiKey you just recieved from us.<br />
 ...</p>
 </blockquote>
 
@@ -69,7 +69,7 @@ $instance-&gt;sendImages($_POST[&#39;content&#39;]); // @param is string<br />
 &lt;!-- After all predefined javascript --&gt;<br />
 &lt;?php<br />
 required_once(&#39;file/path/Vindowshop.php&#39;);<br />
-$instance = new Vindowshop(appId,apiKey);<br />
+$instance = new Vindowshop($appId,$apiKey);<br />
 $instance-&gt;apiAuth();<br />
 echo $instance-&gt;createJS(); // This function will create required DOM for the things get working<br />
 ?&gt;<br />
