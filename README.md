@@ -1,6 +1,6 @@
 <p><span style="font-size:16px">This is a php wrapper for the publishers associated with VindowShop.</span></p>
 
-<p><u><strong>1. What this sdk do?</strong></u></p>
+<p><u><strong>1. What does this sdk do?</strong></u></p>
 
 <p>Being a publisher of a content management system and being associated with VindowShop you would like to send your images to VindowShop while posting a blog or some content to your page, and also you would like to show your visitors the VindowShop logo on the those images and help them to get similar cloths from the web. This wrapper helps you to code minimum on your CMS and make these things happen in a easiest way.</p>
 
@@ -13,10 +13,13 @@
 
 <p><strong>Step 1:</strong></p>
 
-<p>Very simple ! Just get this Vindowshop.php file, and keep it whereever you want in your PHP application. Now, where you want to use it just include this file.<br />
-...<br />
+<p>Very simple ! Just get this Vindowshop.php file, and keep it whereever you want in your PHP application. Now, where you want to use it just include this file.</p>
+
+<blockquote>
+<p>...<br />
 required_once(&#39;file/path/Vindowshop.php&#39;);<br />
 ...</p>
+</blockquote>
 
 <p><strong>Step 2:</strong></p>
 
