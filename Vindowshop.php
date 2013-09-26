@@ -67,12 +67,11 @@ class Vindowshop
 	public function apiAuth(){
 		$response = $this->apiRequest('auth/', $data = array('appId' => $this->app_id, 'apiKey' => $this->api_key));
 		$array = json_decode($response, true);
-		die(var_dump($response));
 		if(!$array['error']){
 			$this->app_token = $array['token'];
 		}
 		else{
-			throw new Exception('Exception : There is some error authorizing the application.');
+			throw new Exception($array['error']);
 		}
 	}
 
@@ -81,7 +80,10 @@ class Vindowshop
 		* @return array of appId and appToken
 	*/
 	protected function getAuthInfo(){
-		return array('appId'=>$this->app_id, 'appToken'=>$this->app_token);
+		if($this->app_token)
+			return array('appId'=>$this->app_id, 'appToken'=>$this->app_token);
+		else
+			return null;
 	}
 
 	/**
@@ -92,7 +94,6 @@ class Vindowshop
 		$images = $this->getImagesUrls($string);
 		$data = array('from_wrapper',$images);
 		$response = $this->apiRequest('',$data);
-		die(var_dump($response));
 	}
 
 	
@@ -106,7 +107,7 @@ class Vindowshop
 		$imageTags = $this->getImageTags($string);
 		$imageTags = implode(" ", $imageTags);
 	    $regex = '/https?\:\/\/[^\" ]+/i';
-    	preg_match_all($regex, $string, $matches);
+    	preg_match_all($regex, $imageTags, $matches);
     	return ($matches[0]);
 	}
 
@@ -133,6 +134,55 @@ class Vindowshop
 		return $url . $path;
 	}
 
+
+	/**
+		* This method send an image url and required parameters
+		* recieve the matches found
+		* @param string $url of the image
+		* @return Response
+	*/
+	public function getMatches($url){
+		$data = array($url,'Women Topwear',292,438,136,189,64,64);
+		$response = $this->apiRequest('fetchprod',$data);
+		die(var_dump($response));
+	}
+
+	/**
+		* This method helps users to get images uploaded by them only
+		* @param None
+		* @return $response json encoded string containing all the urls o the immages uploaded by current appId
+	*/
+
+	public function getMyImages(){
+		$blank_array = array();
+		$response = $this->apiRequest('getmyimages/',$blank_array); 
+		return $response;
+	}
+
+	/**
+		* This methos helps user to create supprotng DOM of vindowshop on their website
+		* @return $html the DOM to be added
+	*/
+
+	public function createJS(){
+		$html = '<div id="basic-modal-content"></div>';
+		$html .= '<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>';
+		$html .= '<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/107817493/vindowshop/js/jquery.js"></script>';
+		$html .= '<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/107817493/vindowshop/js/jquery.simplemodal.js"></script>';
+		$html .= '<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/107817493/vindowshop/js/vindowshop.js"></script>';
+		$html .= '<script type="text/javascript" >';
+		$html .= 'var img_array = '.str_replace('"', "'", $this->getMyImages()).';';
+		$html .= 'var img = document.body.getElementsByTagName("img");';
+		$html .= 'var i = 0;';
+		$html .= 'while (i < img.length) {; var pos = inArray(img[i].src, img_array);';
+		$html .= 'if(pos != \'not found\'){var image_url = \'"\'+img[i].src+\'"\'; var new_html = \'<a href="javascript:void(0)"><img onmouseover="javascript:lights_in(this)" onclick="javascript:select_gender(this,image_url)" onmouseout="javascript:lights_out(this)" style="opacity: 0.4; position: absolute; z-index: 1; top: 15px; right: 30px; max-height:40px" src="http://www.f6s.com/pictures/profiles/17/1641/164049_th2.jpg"></a>\';';
+    	$html .= 'img[i].parentNode.setAttribute(\'style\',\'display: inline-block;position: relative;\');';
+    	$html .= 'img[i].parentNode.innerHTML = img[i].parentNode.innerHTML+new_html;';
+    	$html .= '}i++;}</script>';
+    	$html .= '<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/107817493/vindowshop/css/basic.css" type="text/css" media="all" />';
+		$html .= '<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/107817493/vindowshop/css/VindowShop.css" type="text/css" media="all" />';
+		return $html;
+	}
 
 
 	/**
@@ -166,19 +216,10 @@ class Vindowshop
 
 // Testing
 
-$instance = new Vindowshop('123456788','987654321');
+$instance = new Vindowshop('123456789','987654321');
 $instance->apiAuth();
-$instance->sendImages('<a href="http://www.vindowshop.com/wordpress/wp-content/uploads/2013/09/ws-space-apple-logo1.jpg"><img class="alignnone size-medium wp-image-15" alt="ws-space-apple-logo1" src="http://www.vindowshop.com/wordpress/wp-content/uploads/2013/09/ws-space-apple-logo1-300x187.jpg" width="300" height="187" /></a>
-
-<a href="http://www.vindowshop.com/wordpress/wp-content/uploads/2013/09/yii_wallpaper_dark.jpg"><img class="alignnone size-medium wp-image-13" alt="yii_wallpaper_dark" src="http://www.vindowshop.com/wordpress/wp-content/uploads/2013/09/yii_wallpaper_dark-300x240.jpg" width="300" height="240" /></a>
-
-<a href="http://www.vindowshop.com/wordpress/wp-content/uploads/2013/09/code-EAT-SLEEP-800x10001.jpg"><img class="alignnone size-medium wp-image-10" alt="code EAT SLEEP-800x1000" src="http://www.vindowshop.com/wordpress/wp-content/uploads/2013/09/code-EAT-SLEEP-800x10001-240x300.jpg" width="240" height="300" /></a>
-
-<a href="http://www.vindowshop.com/wordpress/wp-content/uploads/2013/09/coding_alamy_2365972b.jpg"><img class="alignnone size-medium wp-image-7" alt="B93X8G / Luminous Keyboard" src="http://www.vindowshop.com/wordpress/wp-content/uploads/2013/09/coding_alamy_2365972b-300x194.jpg" width="300" height="194" /></a>
-
-&nbsp;
-
-&nbsp;');
-
+//$instance->sendImages($string); // String is the entire post including image urls, just passing the entire post will make it work
+$instance->getMyImages(); // Get all the image of appId 123456789
+$htm = $instance->createJS(); // Creating DOM via this function (Normally this function should be called in the footer section)
 
 ?>
