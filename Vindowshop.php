@@ -91,12 +91,14 @@ class Vindowshop
 		* @param string $string The post where the images will be extracted from
 	*/
 		public function sendImages($string){
-			$images = $this->getImagesUrls($string);
-			$data = array('from_wrapper',$images);
+			$imgs = $this->getImagesUrls($string);
+			foreach($imgs as $image){
+				$images[] = rtrim($image,'\\');
+			}
+			$data = array('from_wrapper',$images);			
 			$response = $this->apiRequest('',$data);
 		}
-
-		
+			
 	/**
 		* Getting all image urls from the string
 		* @param string $string The post where the image urls will be extracted from
@@ -173,12 +175,12 @@ class Vindowshop
 			$html .= '<script type="text/javascript" >';
 			$html .= 'var img_array = '.str_replace('"', "'", $this->getMyImages()).';';
 			$html .= 'var img = document.body.getElementsByTagName("img");';
-			$html .= 'var i = 0;';
-			$html .= 'while (i < img.length) {; var pos = inArray(img[i].src, img_array);';
-			$html .= 'if(pos != \'not found\'){var image_url = \'"\'+img[i].src+\'"\'; var new_html = \'<a href="javascript:void(0)"><img onmouseover="javascript:lights_in(this)" onclick="javascript:select_gender(this,image_url)" onmouseout="javascript:lights_out(this)" style="opacity: 0.4; position: absolute; z-index: 1; top: 15px; right: 30px; max-height:40px" src="http://www.f6s.com/pictures/profiles/17/1641/164049_th2.jpg"></a>\';';
+			$html .= 'var i = 0;var image_url=[];';
+			$html .= 'while (i < img.length) { var pos = inArray(img[i].src, img_array);image_url.push(\'"\'+img[i].src+\'"\');';
+			$html .= 'if(pos != \'not found\'){var new_html = "<a href=\'javascript:void(0)\'><img onmouseover=\'javascript:lights_in(this)\' onclick=\'javascript:select_gender(this,"+addquote(img[i].src)+")\' onmouseout=\'javascript:lights_out(this)\' style=\'opacity: 0.4; position: absolute; z-index: 1; top: 15px; right: 30px; max-height:40px\' src=\'http://www.f6s.com/pictures/profiles/17/1641/164049_th2.jpg\'></a>";';
 			$html .= 'img[i].parentNode.setAttribute(\'style\',\'display: inline-block;position: relative;\');';
 			$html .= 'img[i].parentNode.innerHTML = img[i].parentNode.innerHTML+new_html;';
-			$html .= '}i++;}</script>';
+			$html .= '}i++;} function addquote(str){return \'"\'+str+\'"\'}</script>';
 			$html .= '<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/107817493/vindowshop/css/basic.css" type="text/css" media="all" />';
 			$html .= '<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/107817493/vindowshop/css/VindowShop.css" type="text/css" media="all" />';
 			return $html;
