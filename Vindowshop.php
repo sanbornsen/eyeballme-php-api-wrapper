@@ -98,7 +98,7 @@ class Vindowshop
 			$data = array('from_wrapper',$images);			
 			$response = $this->apiRequest('',$data);
 		}
-			
+
 	/**
 		* Getting all image urls from the string
 		* @param string $string The post where the image urls will be extracted from
