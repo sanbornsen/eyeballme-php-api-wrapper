@@ -1,9 +1,9 @@
 <?php 
 
 /**
-* THis is a wrapper class of Vindowshop.
+* THis is a wrapper class of Eyeballme.
 */
-class Vindowshop
+class Eyeballme
 {
 	//define version
 	const version = 0.01;
@@ -11,21 +11,21 @@ class Vindowshop
 	//define author
 	const author = 'sanborn';	
 
-	//define Vindowshop api baseurl
+	//define Eyeballme api baseurl
 	const API_URL = "http://vindowshop.com:9999/";
 
 
-	//app_id and and api key provided by Vindowshop
+	//app_id and and api key provided by Eyeballme
 	protected $app_id = null;
 	protected $api_key = null;
 
-	//This token will issued from vindowshop server while authorising the api
+	//This token will issued from Eyeballme server while authorising the api
 	protected $app_token = null;
 
     /**
 	    * Default constructor
-	    * @param string $appId for Vindowshop application
-	    * @param string $apiKey for vindowshop application
+	    * @param string $appId for Eyeballme application
+	    * @param string $apiKey for Eyeballme application
     */
 
     function __construct($appId, $apiKey){
@@ -43,7 +43,7 @@ class Vindowshop
 
 	/**
 		* Initializing user app ID
-		* @param string $appId for Vindowshop application
+		* @param string $appId for Eyeballme application
 	*/
 
 		private function setAppId($appId){
@@ -52,7 +52,7 @@ class Vindowshop
 
 	/**
 		* Initializing user api Key
-		* @param string $apiKey for Vindowshop application
+		* @param string $apiKey for Eyeballme application
 	*/
 
 		private function setApiKey($apiKey){
@@ -162,7 +162,7 @@ class Vindowshop
 		}
 
 	/**
-		* This methos helps user to create supprotng DOM of vindowshop on their website
+		* This methos helps user to create supprotng DOM of Eyeballme on their website
 		* @return $html the DOM to be added
 	*/
 
@@ -218,7 +218,7 @@ class Vindowshop
 
 // Testing
 
-//$instance = new Vindowshop(appId,apiKey);
+//$instance = new Eyeballme(appId,apiKey);
 //$instance->apiAuth();
 //$instance->sendImages($string); // String is the entire post including image urls, just passing the entire post will make it work
 //$instance->getMyImages(); // Get all the image of appId 123456789
