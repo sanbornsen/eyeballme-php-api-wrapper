@@ -218,10 +218,10 @@ class Vindowshop
 
 // Testing
 
-	$instance = new Vindowshop('123456789','987654321');
-	$instance->apiAuth();
+//$instance = new Vindowshop(appId,apiKey);
+//$instance->apiAuth();
 //$instance->sendImages($string); // String is the entire post including image urls, just passing the entire post will make it work
-$instance->getMyImages(); // Get all the image of appId 123456789
-$htm = $instance->createJS(); // Creating DOM via this function (Normally this function should be called in the footer section)
+//$instance->getMyImages(); // Get all the image of appId 123456789
+//$htm = $instance->createJS(); // Creating DOM via this function (Normally this function should be called in the footer section)
 
 ?>
