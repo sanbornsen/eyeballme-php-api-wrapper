@@ -17,13 +17,13 @@
 
 <blockquote>
 <p>...<br />
-required_once(&#39;file/path/Eyeballme.php&#39;);<br />
+require_once(&#39;file/path/Eyeballme.php&#39;);<br />
 ...</p>
 </blockquote>
 
 <p><strong>Step 2:</strong></p>
 
-<p>Now it&#39;s time to get access for your application. Open a developer account at http://developers.Eyeballme.com and get your appId and apiKey</p>
+<p>Now it&#39;s time to get access for your application. Open a developer account at http://developers.eyeballme.co and get your appId and apiKey</p>
 
 <p><strong>Step 3: Authenticate your API</strong></p>
 
@@ -68,7 +68,7 @@ $instance-&gt;sendImages($_POST[&#39;content&#39;]); // @param is string<br />
 &lt;!-- footer --&gt;<br />
 &lt;!-- After all predefined javascript --&gt;<br />
 &lt;?php<br />
-required_once(&#39;file/path/Eyeballme.php&#39;);<br />
+require_once(&#39;file/path/Eyeballme.php&#39;);<br />
 $instance = new Eyeballme($appId,$apiKey);<br />
 $instance-&gt;apiAuth();<br />
 echo $instance-&gt;createJS(); // This function will create required DOM for the things get working<br />
