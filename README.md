@@ -1,37 +1,37 @@
-<p><span style="font-size:16px">This is a php wrapper for the publishers associated with VindowShop.</span></p>
+<p><span style="font-size:16px">This is a php wrapper for the publishers associated with Eyeballme.</span></p>
 
 <p><u><strong>1. What does this sdk do?</strong></u></p>
 
-<p>Being a publisher of a content management system and being associated with VindowShop you would like to send your images to VindowShop while posting a blog or some content to your page, and also you would like to show your visitors the VindowShop logo on the those images and help them to get similar cloths from the web. This wrapper helps you to code minimum on your CMS and make these things happen in a easiest way.</p>
+<p>Being a publisher of a content management system and being associated with Eyeballme you would like to send your images to Eyeballme while posting a blog or some content to your page, and also you would like to show your visitors the Eyeballme logo on the those images and help them to get similar cloths from the web. This wrapper helps you to code minimum on your CMS and make these things happen in a easiest way.</p>
 
 <p><br />
 <u><strong>2. How does it work?</strong></u></p>
 
-<p>What heppens is basically, we take all the image urls exist in a post while you are posting something. After that we run a selection process to select images from them, then show a tiny VindowShop button on your front end, particularly on those selected images. When ever your user clicks on it, he/she get to see all the similar dresses from different online market places.</p>
+<p>What heppens is basically, we take all the image urls exist in a post while you are posting something. After that we run a selection process to select images from them, then show a tiny Eyeballme button on your front end, particularly on those selected images. When ever your user clicks on it, he/she get to see all the similar dresses from different online market places.</p>
 
 <p><u><strong>3. How to use it?</strong></u></p>
 
 <p><strong>Step 1:</strong></p>
 
-<p>Very simple ! Just get this Vindowshop.php file, and keep it whereever you want in your PHP application. Now, where you want to use it just include this file.</p>
+<p>Very simple ! Just get this Eyeballme.php file, and keep it whereever you want in your PHP application. Now, where you want to use it just include this file.</p>
 
 <blockquote>
 <p>...<br />
-required_once(&#39;file/path/Vindowshop.php&#39;);<br />
+required_once(&#39;file/path/Eyeballme.php&#39;);<br />
 ...</p>
 </blockquote>
 
 <p><strong>Step 2:</strong></p>
 
-<p>Now it&#39;s time to get access for your application. Open a developer account at http://developers.vindowshop.com and get your appId and apiKey</p>
+<p>Now it&#39;s time to get access for your application. Open a developer account at http://developers.Eyeballme.com and get your appId and apiKey</p>
 
 <p><strong>Step 3: Authenticate your API</strong></p>
 
-<p>Now get back to your code, and create an instance of the class written at Vindowshop.php (the file you downloaded from us earlier).</p>
+<p>Now get back to your code, and create an instance of the class written at Eyeballme.php (the file you downloaded from us earlier).</p>
 
 <blockquote>
 <p>...<br />
-$instance = new Vindowshop($appId,$apiKey); // $appId and $apiKey you just recieved from us.<br />
+$instance = new Eyeballme($appId,$apiKey); // $appId and $apiKey you just recieved from us.<br />
 ...</p>
 </blockquote>
 
@@ -68,8 +68,8 @@ $instance-&gt;sendImages($_POST[&#39;content&#39;]); // @param is string<br />
 &lt;!-- footer --&gt;<br />
 &lt;!-- After all predefined javascript --&gt;<br />
 &lt;?php<br />
-required_once(&#39;file/path/Vindowshop.php&#39;);<br />
-$instance = new Vindowshop($appId,$apiKey);<br />
+required_once(&#39;file/path/Eyeballme.php&#39;);<br />
+$instance = new Eyeballme($appId,$apiKey);<br />
 $instance-&gt;apiAuth();<br />
 echo $instance-&gt;createJS(); // This function will create required DOM for the things get working<br />
 ?&gt;<br />
