@@ -78,8 +78,18 @@ echo $instance-&gt;createJS(); // This function will create required DOM for the
 
 <p>Make sure you use it after all your predefined JS required for your website. Best practice is to add it at the bottom of your footer.</p>
 
+<p><strong>Step 6: Few more thing you&#39;d like to know</strong></p>
+
+<p>Know the version of the API</p>
+
+<blockquote>
+<p>$instance-&gt;getVersion(); // will give you the version of the API</p>
+</blockquote>
+
+<p>&nbsp;</p>
+
 <p><br />
-<strong>Step 6: Facing problems or got questions</strong></p>
+<strong>Step 7: Facing problems or got questions</strong></p>
 
 <p>Drop a mail at sanborn.sen[at]gmail.com</p>
 
