@@ -86,7 +86,11 @@ echo $instance-&gt;createJS(); // This function will create required DOM for the
 <p>$instance-&gt;getVersion(); // will give you the version of the API</p>
 </blockquote>
 
-<p>&nbsp;</p>
+<p>Get the images we have selected to process, pubished in your website</p>
+
+<blockquote>
+<p>$instance-&gt;getMyImages() // you need authenticate your app before you doing this, this will return a json containing all the images we have taken from you</p>
+</blockquote>
 
 <p><br />
 <strong>Step 7: Facing problems or got questions</strong></p>
