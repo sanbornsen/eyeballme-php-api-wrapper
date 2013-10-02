@@ -110,9 +110,10 @@ class Eyeballme
 		private function getImagesUrls($string){
 			$imageTags = $this->getImageTags($string);
 			$imageTags = implode(" ", $imageTags);
-			$regex = '/https?\:\/\/[^\" ]+/i';
+			//$regex = '/https?\:\/\/[^\" ]+/i';
+			$regex = '/(src)=("[^"]*")/i';
 			preg_match_all($regex, $imageTags, $matches);
-			return ($matches[0]);
+			return $matches[2];
 		}
 
 		
